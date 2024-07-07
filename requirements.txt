@@ -1,7 +1,9 @@
 alembic==1.13.2
+Babel==2.15.0
 blinker==1.8.2
 click==8.1.7
 Flask==3.0.3
+flask-babel==4.0.0
 Flask-Migrate==4.0.7
 Flask-SQLAlchemy==3.1.1
 gunicorn==22.0.0
@@ -12,6 +14,8 @@ MarkupSafe==2.1.5
 packaging==24.1
 PyMySQL==1.1.1
 python-dotenv==1.0.1
+pytz==2024.1
+setuptools==70.2.0
 SQLAlchemy==2.0.31
 typing_extensions==4.12.2
 Werkzeug==3.0.3

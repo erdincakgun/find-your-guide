@@ -8,6 +8,8 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY src/ .
 
+COPY translations/ /translations
+
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
