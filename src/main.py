@@ -1,9 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import String
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from flask import Flask, render_template
 from os import getenv
 from dotenv import load_dotenv
+from flask_migrate import Migrate
 
 load_dotenv(override=True)
 
@@ -13,17 +12,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DB_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
-class Base(DeclarativeBase):
-    pass
-
-
-class Guide(Base):
-    __tablename__ = "guides"
-    id: Mapped[int] = mapped_column(primary_key=True)
-    first_name: Mapped[str] = mapped_column(String(45))
-    last_name: Mapped[str] = mapped_column(String(45))
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(128))
 
 
 @app.route("/")
