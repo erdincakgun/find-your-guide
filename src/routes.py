@@ -5,4 +5,6 @@ router = Blueprint('router', __name__)
 
 @router.route("/")
 def index():
-    return render_template("index.html")
+    context = {}
+    context.update({"title": "Find Your Guide | Home Page"})
+    return render_template("index.html", **context)
