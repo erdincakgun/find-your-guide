@@ -1,8 +1,9 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template
+from flask import Flask
 from os import getenv
 from dotenv import load_dotenv
 from flask_migrate import Migrate
+from models import db
+from routes import router
 
 load_dotenv(override=True)
 
@@ -11,19 +12,10 @@ app.config["SECRET_KEY"] = getenv("SECRET_KEY")
 app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DB_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+db.init_app(app)
 migrate = Migrate(app, db)
 
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(128))
-
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
+app.register_blueprint(router)
 
 if __name__ == "__main__":
     app.run("0.0.0.0", 80, debug=True)
