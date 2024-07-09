@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from models import db
 from routes import router
 from flask_babel import Babel
+from datetime import datetime
 
 load_dotenv(override=True)
 
@@ -32,7 +33,9 @@ app.register_blueprint(router)
 @app.context_processor
 def utility_processor():
     return {
-        "lang": get_locale()
+        "lang": get_locale(),
+        "current_year": datetime.now().year,
+        "copyright_url": getenv("COPYRIGHT_URL")
     }
 
 
