@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-07 21:04+0300\n"
+"POT-Creation-Date: 2024-07-07 21:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,5 +19,9 @@ msgstr ""
 
 #: src/routes.py:11
 msgid "Find Your Guide | Home Page"
+msgstr ""
+
+#: src/templates/footer.html:310
+msgid "All Rights Reserved."
 msgstr ""
 
