@@ -1,7 +1,9 @@
 alembic==1.13.2
 Babel==2.15.0
 blinker==1.8.2
+certifi==2024.7.4
 click==8.1.7
+cloudinary==1.40.0
 Flask==3.0.3
 flask-babel==4.0.0
 Flask-Migrate==4.0.7
@@ -16,6 +18,8 @@ PyMySQL==1.1.1
 python-dotenv==1.0.1
 pytz==2024.1
 setuptools==70.2.0
+six==1.16.0
 SQLAlchemy==2.0.31
 typing_extensions==4.12.2
+urllib3==2.2.2
 Werkzeug==3.0.3
