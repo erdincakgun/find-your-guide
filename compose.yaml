@@ -19,5 +19,7 @@ services:
     environment:
     - DB_URI=${DB_URI}
     - SECRET_KEY=${SECRET_KEY}
+    - COPYRIGHT_URL=${COPYRIGHT_URL}
+    - CLOUDINARY_URL=${CLOUDINARY_URL}
 volumes:
   data:
