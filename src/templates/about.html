@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container my-5">
+  <div class="text-center">
+    <h1 class="display-4">{{ _("About Us") }}</h1>
+    <p class="lead">{{ _("Find Your Guide is a platform dedicated to connecting travelers with local guides for unique and memorable experiences. Our mission is to help travelers explore new locations, discover hidden gems, and create lasting memories while traveling.") }}</p>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-md-4 text-center">
+      <i class="fas fa-globe-americas fa-3x mb-3 text-primary"></i>
+      <h2 class="h5">{{ _("Our Vision") }}</h2>
+      <p>{{ _("To create a global community of travelers who connect through shared experiences and a love for exploration.") }}</p>
+    </div>
+    <div class="col-md-4 text-center">
+      <i class="fas fa-heart fa-3x mb-3 text-primary"></i>
+      <h2 class="h5">{{ _("Our Values") }}</h2>
+      <ul class="list-unstyled">
+        <li>{{ _("Passion for travel and exploration") }}</li>
+        <li>{{ _("Commitment to providing exceptional experiences") }}</li>
+        <li>{{ _("Dedication to discovering and sharing hidden gems") }}</li>
+        <li>{{ _("Building a supportive and inclusive travel community") }}</li>
+      </ul>
+    </div>
+    <div class="col-md-4 text-center">
+      <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+      <h2 class="h5">{{ _("Join Us") }}</h2>
+      <p>{{ _("Are you passionate about travel and eager to share your favorite places with others? Become a guide and join our community of explorers today!") }}</p>
+    </div>
+  </div>
+
+  <div class="text-center my-5">
+    <h2 class="h5">{{ _("Contact Us") }}</h2>
+    <p>{{ _("Have any questions or feedback? We'd love to hear from you! Reach out to us at") }} <a href="mailto:info@findyourguide.com">info@findyourguide.com</a>.</p>
+  </div>
+</div>
+{% endblock main %}
