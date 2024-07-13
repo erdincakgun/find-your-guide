@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-lg-7 d-flex flex-column justify-content-center align-items-center order-2 order-lg-1">
+    <h2 class="fw-normal lh-1 pt-3 pt-lg-0">{{ _('Meet our best guide.') }} <span class="text-body-secondary">{{ _('This is Korina') }} &#128075;</span></h2>
+    <p class="lead">{{ _('We strive to provide the best experiences on earth.') }}</p>
+    <div class="input-group input-group-lg fyg-carousel-form">
+      <input type="text" class="form-control" placeholder="{{ _('Type your contact info') }}" maxlength="50">
+      <button type="submit" class="btn btn-secondary">{{ _('Contact Me') }}</button>
+    </div>
+    <small class="text-body-secondary py-3"><i class="fa-solid fa-shield-halved"></i> {{ _("Your data will not be shared with 3rd parties.") }}</small>
+  </div>
+  <div class="col-lg-5 order-1 order-lg-2">
+    <img src="{{ url_for('static', filename='jpg/our-best-guide.jpg') }}" alt="our best guide" class="img-fluid rounded" style="width: 100%;" />
+  </div>
+</div>
