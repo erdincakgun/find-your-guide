@@ -35,7 +35,8 @@ def utility_processor():
     return {
         "lang": get_locale(),
         "current_year": datetime.now().year,
-        "copyright_url": getenv("COPYRIGHT_URL")
+        "copyright_url": getenv("COPYRIGHT_URL"),
+        "whatsapp_number": getenv("WHATSAPP_NUMBER"),
     }
 
 
