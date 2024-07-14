@@ -1,22 +1,36 @@
 <nav class="navbar navbar-expand-sm fixed-top bg-white">
   <div class="container">
     <a class="navbar-brand" href="{{ url_for('router.index', lang=lang) }}">Find Your Guide</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="{{ _('Toggle navigation') }}">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="{{ _('Toggle navigation') }}"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.index', lang=lang) }}">{{ _("Home") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.index', lang=lang) }}">{{ _('Home') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.about', lang=lang) }}">{{ _("About") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.about', lang=lang) }}">{{ _('About') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.contact', lang=lang) }}">{{ _("Contact") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.contact', lang=lang) }}">{{ _('Contact') }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.guides', lang=lang) }}">{{ _("Guides") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.guides', lang=lang) }}">{{ _('Guides') }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-center" aria-current="page" data-bs-toggle="dropdown" aria-expanded="false" href="{{ url_for('router.guides', lang=lang) }}">{{ lang|upper }}</a>
+          <div class="dropdown">
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="{{ url_for('router.guides', lang='en') }}">EN</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url_for('router.guides', lang='tr') }}">TR</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url_for('router.guides', lang='es') }}">ES</a>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </div>
