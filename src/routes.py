@@ -3,6 +3,7 @@ from flask_mail import Message, Mail
 from flask_babel import _
 from os import getenv
 from datetime import datetime
+from src.models import Event, Guide
 
 router = Blueprint('router', __name__)
 mail = Mail()
@@ -10,35 +11,7 @@ mail = Mail()
 
 @router.route("/<lang>/")
 def index(lang):
-    events = [
-        {
-            "avatar": "webp/avatar-1.webp",
-            "guide": "Sarah Johnson",
-            "participants": 15,
-            "description": _("Join us for an enchanting tour through Central Park. Discover hidden gems and iconic landmarks while enjoying the beauty of nature."),
-            "image": "jpg/upcoming-1.jpg",
-            "dates": "July 20 - July 22",
-            "location": "Central Park, New York City, NY"
-        },
-        {
-            "avatar": "webp/avatar-3.webp",
-            "guide": "Michael Brown",
-            "participants": 20,
-            "description": _("Experience the rich history of Boston on this guided tour. Visit historic sites and learn fascinating stories about the city's past."),
-            "image": "jpg/upcoming-2.jpg",
-            "dates": "August 5 - August 7",
-            "location": "Boston Common, Boston, MA"
-        },
-        {
-            "avatar": "webp/avatar-2.webp",
-            "guide": "Emily Davis",
-            "participants": 10,
-            "description": _("Join us for an adventurous tour through the Rocky Mountains. Explore breathtaking trails and enjoy the stunning views."),
-            "image": "jpg/upcoming-3.jpg",
-            "dates": "September 10 - September 12",
-            "location": "Rocky Mountain National Park, CO"
-        }
-    ]
+    events = Event.query.all()
 
     context = {
         "title": _("Find Your Guide | Home Page"),
@@ -67,10 +40,20 @@ def contact(lang):
 
 @router.route("/<lang>/guides")
 def guides(lang):
-    context = {}
-    context.update({
-        "title": _("Find Your Guide | Guides")
-    })
+    guides = Guide.query.all()  # Fetch all guides from the database
+
+    locations = {guide.location for guide in guides}
+    languages = {
+        language for guide in guides for language in guide.languages.split(', ')}
+
+    context = {
+        "title": _("Find Your Guide | Guides"),
+        "guides": guides,
+        "languages": sorted(languages),
+        "locations": sorted(locations),
+        # Add WhatsApp number from environment variables
+        "whatsapp_number": getenv("WHATSAPP_NUMBER")
+    }
     return render_template("guides.html", **context)
 
 

@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, url_for
 from os import getenv
 from dotenv import load_dotenv
 from flask_migrate import Migrate
-from src.models import db, Event
+from src.models import db
 from src.routes import router, mail
 from flask_babel import Babel
 from datetime import datetime
