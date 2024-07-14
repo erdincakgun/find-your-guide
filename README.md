@@ -5,9 +5,6 @@
     <h1 align="center">FIND-YOUR-GUIDE</h1>
 </p>
 <p align="center">
-    <em>HTTP error 401 for prompt `slogan`</em>
-</p>
-<p align="center">
     <img src="https://img.shields.io/github/license/erdincakgun/find-your-guide?style=flat&color=0080ff" alt="license">
     <img src="https://img.shields.io/github/last-commit/erdincakgun/find-your-guide?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
     <img src="https://img.shields.io/github/languages/top/erdincakgun/find-your-guide?style=flat&color=0080ff" alt="repo-top-language">
