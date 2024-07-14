@@ -9,10 +9,10 @@
           <a href="{{ url_for('router.about', lang=lang) }}" class="nav-link p-0 text-body-secondary">{{ _("About") }}</a>
         </li>
         <li class="nav-item mb-2">
-          <a href="#" class="nav-link p-0 text-body-secondary">{{ _("Contact") }}</a>
+          <a href="{{ url_for('router.contact', lang=lang) }}" class="nav-link p-0 text-body-secondary">{{ _("Contact") }}</a>
         </li>
         <li class="nav-item mb-2">
-          <a href="#" class="nav-link p-0 text-body-secondary">{{ _("Guides") }}</a>
+          <a href="{{ url_for('router.guides', lang=lang) }}" class="nav-link p-0 text-body-secondary">{{ _("Guides") }}</a>
         </li>
       </ul>
     </div>
