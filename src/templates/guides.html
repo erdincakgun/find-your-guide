@@ -1,123 +1,148 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<div class="my-5">
-  <div class="text-center">
-    <h1 class="display-4">{{ _("Our Guides") }}</h1>
-    <p class="lead">{{ _("Meet our experienced guides who are passionate about showing you the best of their cities.") }}</p>
+  <div class="my-5">
+    <div class="text-center">
+      <h1 class="display-4">{{ _('Our Guides') }}</h1>
+      <p class="lead">{{ _('Meet our experienced guides who are passionate about showing you the best of their cities.') }}</p>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="language" class="form-label">{{ _('Language') }}</label>
+                <select id="language" class="form-select" onchange="filterGuides()">
+                  <option value="">{{ _('Choose...') }}</option>
+                  <option value="English">{{ _('English') }}</option>
+                  <option value="Spanish">{{ _('Spanish') }}</option>
+                  <option value="French">{{ _('French') }}</option>
+                  <option value="German">{{ _('German') }}</option>
+                  <option value="Chinese">{{ _('Chinese') }}</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="location" class="form-label">{{ _('Location') }}</label>
+                <select id="location" class="form-select" onchange="filterGuides()">
+                  <option value="">{{ _('Choose...') }}</option>
+                  <option value="New York City">{{ _('New York City') }}</option>
+                  <option value="Boston">{{ _('Boston') }}</option>
+                  <option value="San Francisco">{{ _('San Francisco') }}</option>
+                  <option value="Chicago">{{ _('Chicago') }}</option>
+                  <option value="Los Angeles">{{ _('Los Angeles') }}</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="guides-list">
+      <div class="col-12 col-md-6 mb-4 guide" data-language="English Spanish" data-location="New York City">
+        <div class="card shadow-sm position-relative">
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Sarah%20Johnson" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank"><i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _('Start chat') }}</span></a>
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex align-items-center mb-3 w-100">
+              <img src="{{ url_for('static', filename='webp/avatar-1.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar" />
+              <div class="ms-3">
+                <h5 class="mb-1">Sarah Johnson</h5>
+                <p class="mb-0">
+                  <i class="fas fa-map-marker-alt"></i> New York City, NY
+                </p>
+                <p class="mb-0">
+                  <i class="fas fa-language"></i> English, Spanish
+                </p>
+              </div>
+            </div>
+            <p class="mb-3">{{ _('Sarah has been guiding tours in New York City for over 5 years. She loves showing travelers the hidden gems of the city.') }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 mb-4 guide" data-language="English French" data-location="Boston">
+        <div class="card shadow-sm position-relative">
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Michael%20Brown" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank"><i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _('Start chat') }}</span></a>
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex align-items-center mb-3 w-100">
+              <img src="{{ url_for('static', filename='webp/avatar-3.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar" />
+              <div class="ms-3">
+                <h5 class="mb-1">Michael Brown</h5>
+                <p class="mb-0">
+                  <i class="fas fa-map-marker-alt"></i> Boston, MA
+                </p>
+                <p class="mb-0">
+                  <i class="fas fa-language"></i> English, French
+                </p>
+              </div>
+            </div>
+            <p class="mb-3">{{ _("Michael is an expert on Boston's history and enjoys sharing fascinating stories about the city's past.") }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 mb-4 guide" data-language="English Chinese" data-location="San Francisco">
+        <div class="card shadow-sm position-relative">
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Emily%20Davis" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank"><i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _('Start chat') }}</span></a>
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex align-items-center mb-3 w-100">
+              <img src="{{ url_for('static', filename='webp/avatar-2.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar" />
+              <div class="ms-3">
+                <h5 class="mb-1">Emily Davis</h5>
+                <p class="mb-0">
+                  <i class="fas fa-map-marker-alt"></i> San Francisco, CA
+                </p>
+                <p class="mb-0">
+                  <i class="fas fa-language"></i> English, Chinese
+                </p>
+              </div>
+            </div>
+            <p class="mb-3">{{ _("Emily has a deep love for San Francisco and enjoys showing visitors the city's unique neighborhoods and landmarks.") }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 mb-4 guide" data-language="English German" data-location="Chicago">
+        <div class="card shadow-sm position-relative">
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Anna%20Lee" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank"><i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _('Start chat') }}</span></a>
+          <div class="card-body d-flex flex-column align-items-start">
+            <div class="d-flex align-items-center mb-3 w-100">
+              <img src="{{ url_for('static', filename='webp/avatar-4.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar" />
+              <div class="ms-3">
+                <h5 class="mb-1">Anna Lee</h5>
+                <p class="mb-0">
+                  <i class="fas fa-map-marker-alt"></i> Chicago, IL
+                </p>
+                <p class="mb-0">
+                  <i class="fas fa-language"></i> English, German
+                </p>
+              </div>
+            </div>
+            <p class="mb-3">{{ _("Anna has been guiding tours in Chicago for over a decade, offering insights into the city's architecture and history.") }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="row mb-4">
-    <div class="col-12">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <form class="row g-3">
-            <div class="col-md-6">
-              <label for="language" class="form-label">{{ _("Language") }}</label>
-              <select id="language" class="form-select" onchange="filterGuides()">
-                <option value="">{{ _("Choose...") }}</option>
-                <option value="English">{{ _("English") }}</option>
-                <option value="Spanish">{{ _("Spanish") }}</option>
-                <option value="French">{{ _("French") }}</option>
-                <option value="German">{{ _("German") }}</option>
-                <option value="Chinese">{{ _("Chinese") }}</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label for="location" class="form-label">{{ _("Location") }}</label>
-              <select id="location" class="form-select" onchange="filterGuides()">
-                <option value="">{{ _("Choose...") }}</option>
-                <option value="New York City">{{ _("New York City") }}</option>
-                <option value="Boston">{{ _("Boston") }}</option>
-                <option value="San Francisco">{{ _("San Francisco") }}</option>
-                <option value="Chicago">{{ _("Chicago") }}</option>
-                <option value="Los Angeles">{{ _("Los Angeles") }}</option>
-              </select>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" id="guides-list">
-    <div class="col-12 col-md-6 mb-4 guide" data-language="English Spanish" data-location="New York City">
-      <div class="card shadow-sm position-relative">
-        <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Sarah%20Johnson" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank">
-          <i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _("Start chat") }}</span>
-        </a>
-        <div class="card-body d-flex flex-column align-items-start">
-          <div class="d-flex align-items-center mb-3 w-100">
-            <img src="{{ url_for('static', filename='webp/avatar-1.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar">
-            <div class="ms-3">
-              <h5 class="mb-1">Sarah Johnson</h5>
-              <p class="mb-0"><i class="fas fa-map-marker-alt"></i> New York City, NY</p>
-              <p class="mb-0"><i class="fas fa-language"></i> English, Spanish</p>
-            </div>
-          </div>
-          <p class="mb-3">{{ _("Sarah has been guiding tours in New York City for over 5 years. She loves showing travelers the hidden gems of the city.") }}</p>
-        </div>
-      </div>
-    </div>
+  <script>
+    function filterGuides() {
+      const language = document.getElementById('language').value.toLowerCase()
+      const location = document.getElementById('location').value.toLowerCase()
+      const guides = document.querySelectorAll('.guide')
     
-    <div class="col-12 col-md-6 mb-4 guide" data-language="English French" data-location="Boston">
-      <div class="card shadow-sm position-relative">
-        <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Michael%20Brown" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank">
-          <i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _("Start chat") }}</span>
-        </a>
-        <div class="card-body d-flex flex-column align-items-start">
-          <div class="d-flex align-items-center mb-3 w-100">
-            <img src="{{ url_for('static', filename='webp/avatar-3.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar">
-            <div class="ms-3">
-              <h5 class="mb-1">Michael Brown</h5>
-              <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Boston, MA</p>
-              <p class="mb-0"><i class="fas fa-language"></i> English, French</p>
-            </div>
-          </div>
-          <p class="mb-3">{{ _("Michael is an expert on Boston's history and enjoys sharing fascinating stories about the city's past.") }}</p>
-        </div>
-      </div>
-    </div>
+      guides.forEach((guide) => {
+        const guideLanguages = guide.getAttribute('data-language').toLowerCase()
+        const guideLocation = guide.getAttribute('data-location').toLowerCase()
     
-    <div class="col-12 col-md-6 mb-4 guide" data-language="English Chinese" data-location="San Francisco">
-      <div class="card shadow-sm position-relative">
-        <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Emily%20Davis" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank">
-          <i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _("Start chat") }}</span>
-        </a>
-        <div class="card-body d-flex flex-column align-items-start">
-          <div class="d-flex align-items-center mb-3 w-100">
-            <img src="{{ url_for('static', filename='webp/avatar-2.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar">
-            <div class="ms-3">
-              <h5 class="mb-1">Emily Davis</h5>
-              <p class="mb-0"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
-              <p class="mb-0"><i class="fas fa-language"></i> English, Chinese</p>
-            </div>
-          </div>
-          <p class="mb-3">{{ _("Emily has a deep love for San Francisco and enjoys showing visitors the city's unique neighborhoods and landmarks.") }}</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-12 col-md-6 mb-4 guide" data-language="English German" data-location="Chicago">
-      <div class="card shadow-sm position-relative">
-        <a href="https://wa.me/{{ whatsapp_number }}?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20with%20Anna%20Lee" class="btn btn-light position-absolute top-0 end-0 m-2 whatsapp-btn" target="_blank">
-          <i class="fa-regular fa-comments"></i><span class="d-none d-sm-inline-block">&nbsp;{{ _("Start chat") }}</span>
-        </a>
-        <div class="card-body d-flex flex-column align-items-start">
-          <div class="d-flex align-items-center mb-3 w-100">
-            <img src="{{ url_for('static', filename='webp/avatar-4.webp') }}" class="rounded-circle" style="width: 75px;" alt="Avatar">
-            <div class="ms-3">
-              <h5 class="mb-1">Anna Lee</h5>
-              <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
-              <p class="mb-0"><i class="fas fa-language"></i> English, German</p>
-            </div>
-          </div>
-          <p class="mb-3">{{ _("Anna has been guiding tours in Chicago for over a decade, offering insights into the city's architecture and history.") }}</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-{% endblock main %}
+        if ((language === '' || guideLanguages.includes(language)) && (location === '' || guideLocation.includes(location))) {
+          guide.style.display = ''
+        } else {
+          guide.style.display = 'none'
+        }
+      })
+    }
+  </script>
+{% endblock %}
