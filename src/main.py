@@ -1,6 +1,7 @@
 from flask import redirect
 from flask import Flask, request, redirect, url_for
 from flask_admin import Admin
+from flask_admin.menu import MenuLink
 from flask_admin.contrib.sqla import ModelView
 from os import getenv
 from dotenv import load_dotenv
@@ -40,6 +41,7 @@ migrate = Migrate(app, db)
 admin = Admin(app, name='Find Your Guide | Admin Panel',
               template_mode='bootstrap3')
 
+admin.add_link(MenuLink(name='Logout', category='', url='/logout'))
 
 class AdminModelView(ModelView):
     def is_accessible(self):
