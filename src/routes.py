@@ -4,32 +4,32 @@ from flask_babel import _
 router = Blueprint('router', __name__)
 
 
-@router.route("/")
-def index():
+@router.route("/<lang>/")
+def index(lang):
     context = {}
     context.update({
         "title": _("Find Your Guide | Home Page")
     })
     return render_template("index.html", **context)
 
-@router.route("/about")
-def about():
+@router.route("/<lang>/about")
+def about(lang):
     context = {}
     context.update({
         "title": _("Find Your Guide | About")
     })
     return render_template("about.html", **context)
 
-@router.route("/contact")
-def contact():
+@router.route("/<lang>/contact")
+def contact(lang):
     context = {}
     context.update({
         "title": _("Find Your Guide | Contact")
     })
     return render_template("contact.html", **context)
 
-@router.route("/guides")
-def guides():
+@router.route("/<lang>/guides")
+def guides(lang):
     context = {}
     context.update({
         "title": _("Find Your Guide | Guides")

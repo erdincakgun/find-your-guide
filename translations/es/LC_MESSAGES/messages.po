@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-07 21:26+0300\n"
+"POT-Creation-Date: 2024-07-14 15:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -22,7 +22,378 @@ msgstr ""
 msgid "Find Your Guide | Home Page"
 msgstr "Find Your Guide | Página Principal"
 
-#: src/templates/footer.html:310
-msgid "All Rights Reserved."
+#: src/routes.py:19
+#, fuzzy
+msgid "Find Your Guide | About"
+msgstr "Find Your Guide | Acerca de"
+
+#: src/routes.py:27
+#, fuzzy
+msgid "Find Your Guide | Contact"
+msgstr "Find Your Guide | Contacto"
+
+#: src/routes.py:35
+#, fuzzy
+msgid "Find Your Guide | Guides"
+msgstr "Find Your Guide | Guías"
+
+#: src/templates/about.html:6
+msgid "About Us"
+msgstr "Sobre Nosotros"
+
+#: src/templates/about.html:7
+msgid ""
+"Find Your Guide is a platform dedicated to connecting travelers with "
+"local guides for unique and memorable experiences. Our mission is to help"
+" travelers explore new locations, discover hidden gems, and create "
+"lasting memories while traveling."
+msgstr ""
+"Find Your Guide es una plataforma dedicada a conectar a los viajeros con "
+"guías locales para experiencias únicas e inolvidables. Nuestra misión es "
+"ayudar a los viajeros a explorar nuevos lugares, descubrir gemas ocultas "
+"y crear recuerdos duraderos mientras viajan."
+
+#: src/templates/about.html:13
+msgid "Our Vision"
+msgstr "Nuestra Visión"
+
+#: src/templates/about.html:14
+msgid ""
+"To create a global community of travelers who connect through shared "
+"experiences and a love for exploration."
+msgstr ""
+"Crear una comunidad global de viajeros que se conecten a través de "
+"experiencias compartidas y un amor por la exploración."
+
+#: src/templates/about.html:18
+msgid "Our Values"
+msgstr "Nuestros Valores"
+
+#: src/templates/about.html:20
+msgid "Passion for travel and exploration"
+msgstr "Pasión por los viajes y la exploración"
+
+#: src/templates/about.html:21
+msgid "Commitment to providing exceptional experiences"
+msgstr "Compromiso con la provisión de experiencias excepcionales"
+
+#: src/templates/about.html:22
+msgid "Dedication to discovering and sharing hidden gems"
+msgstr "Dedicación a descubrir y compartir gemas ocultas"
+
+#: src/templates/about.html:23
+msgid "Building a supportive and inclusive travel community"
+msgstr "Construir una comunidad de viajes inclusiva y de apoyo"
+
+#: src/templates/about.html:28
+msgid "Join Us"
+msgstr "Únase a Nosotros"
+
+#: src/templates/about.html:29
+msgid ""
+"Are you passionate about travel and eager to share your favorite places "
+"with others? Become a guide and join our community of explorers today!"
+msgstr ""
+"¿Te apasiona viajar y estás ansioso por compartir tus lugares favoritos "
+"con los demás? ¡Conviértete en guía y únete a nuestra comunidad de "
+"exploradores hoy!"
+
+#: src/templates/about.html:34 src/templates/contact.html:6
+msgid "Contact Us"
+msgstr "Contáctenos"
+
+#: src/templates/about.html:35
+msgid ""
+"Have any questions or feedback? We'd love to hear from you! Reach out to "
+"us at"
+msgstr ""
+"¿Tienes alguna pregunta o comentario? ¡Nos encantaría saber de ti! "
+"Contáctanos en"
+
+#: src/templates/base.html:42
+msgid "Hi there! How can I help you?"
+msgstr "¡Hola! ¿Cómo puedo ayudarte?"
+
+#: src/templates/base.html:43
+msgid "Hello, I have a question about"
+msgstr "Hola, tengo una pregunta sobre"
+
+#: src/templates/base.html:45
+msgid "Chat with us"
+msgstr "Chatea con nosotros"
+
+#: src/templates/contact.html:7
+msgid ""
+"We'd love to hear from you! Whether you have a question, feedback, or "
+"want to learn more about our services, feel free to reach out."
+msgstr ""
+"Nos encantaría saber de ti. Si tienes una pregunta, comentario o quieres "
+"saber más sobre nuestros servicios, no dudes en contactarnos."
+
+#: src/templates/contact.html:12
+msgid "Our Location"
+msgstr "Nuestra Ubicación"
+
+#: src/templates/contact.html:17
+msgid "Send Us a Message"
+msgstr "Envíanos un Mensaje"
+
+#: src/templates/contact.html:20
+msgid "Name"
+msgstr "Nombre"
+
+#: src/templates/contact.html:21
+msgid "Your Name"
+msgstr "Tu Nombre"
+
+#: src/templates/contact.html:24
+msgid "Email"
+msgstr "Correo Electrónico"
+
+#: src/templates/contact.html:25
+msgid "Your Email"
+msgstr "Tu Correo Electrónico"
+
+#: src/templates/contact.html:28
+msgid "Message"
+msgstr "Mensaje"
+
+#: src/templates/contact.html:29
+msgid "Your Message"
+msgstr "Tu Mensaje"
+
+#: src/templates/contact.html:32
+msgid "Send Message"
+msgstr "Enviar Mensaje"
+
+#: src/templates/contact.html:39
+msgid "Get in Touch"
+msgstr "Ponte en Contacto"
+
+#: src/templates/contact.html:41
+msgid "You can also reach us at"
+msgstr "También puedes contactarnos en"
+
+#: src/templates/footer.html:6 src/templates/header.html:10
+msgid "Home"
+msgstr "Inicio"
+
+#: src/templates/footer.html:9 src/templates/header.html:13
+msgid "About"
+msgstr "Acerca de"
+
+#: src/templates/footer.html:12 src/templates/header.html:16
+msgid "Contact"
+msgstr "Contacto"
+
+#: src/templates/footer.html:15 src/templates/header.html:19
+msgid "Guides"
+msgstr "Guías"
+
+#: src/templates/footer.html:22 src/templates/footer.html:45
+msgid "Inc."
+msgstr "Inc."
+
+#: src/templates/footer.html:23 src/templates/footer.html:45
+#, fuzzy
+msgid "All rights reserved."
 msgstr "Todos los derechos reservados."
+
+#: src/templates/footer.html:30
+msgid "Privacy Policy"
+msgstr "Política de Privacidad"
+
+#: src/templates/footer.html:33
+msgid "Terms of Service"
+msgstr "Términos del Servicio"
+
+#: src/templates/footer.html:36
+msgid "Cookies Policy"
+msgstr "Política de Cookies"
+
+#: src/templates/footer.html:39
+msgid "Legal Notice"
+msgstr "Aviso Legal"
+
+#: src/templates/guides.html:6
+msgid "Our Guides"
+msgstr "Nuestros Guías"
+
+#: src/templates/guides.html:7
+msgid ""
+"Meet our experienced guides who are passionate about showing you the best"
+" of their cities."
+msgstr ""
+"Conoce a nuestros guías experimentados que están apasionados por "
+"mostrarte lo mejor de sus ciudades."
+
+#: src/templates/guides.html:16
+msgid "Language"
+msgstr "Idioma"
+
+#: src/templates/guides.html:18 src/templates/guides.html:29
+msgid "Choose..."
+msgstr "Elige..."
+
+#: src/templates/guides.html:19
+msgid "English"
+msgstr "Inglés"
+
+#: src/templates/guides.html:20
+msgid "Spanish"
+msgstr "Español"
+
+#: src/templates/guides.html:21
+msgid "French"
+msgstr "Francés"
+
+#: src/templates/guides.html:22
+msgid "German"
+msgstr "Alemán"
+
+#: src/templates/guides.html:23
+msgid "Chinese"
+msgstr "Chino"
+
+#: src/templates/guides.html:27
+msgid "Location"
+msgstr "Ubicación"
+
+#: src/templates/guides.html:30
+msgid "New York City"
+msgstr "Ciudad de Nueva York"
+
+#: src/templates/guides.html:31
+msgid "Boston"
+msgstr "Boston"
+
+#: src/templates/guides.html:32
+msgid "San Francisco"
+msgstr "San Francisco"
+
+#: src/templates/guides.html:33
+msgid "Chicago"
+msgstr "Chicago"
+
+#: src/templates/guides.html:34
+msgid "Los Angeles"
+msgstr "Los Ángeles"
+
+#: src/templates/guides.html:47 src/templates/guides.html:66
+#: src/templates/guides.html:85 src/templates/guides.html:104
+msgid "Start chat"
+msgstr "Iniciar chat"
+
+#: src/templates/guides.html:58
+msgid ""
+"Sarah has been guiding tours in New York City for over 5 years. She loves"
+" showing travelers the hidden gems of the city."
+msgstr ""
+"Sarah ha estado guiando tours en la Ciudad de Nueva York por más de 5 "
+"años. Le encanta mostrar a los viajeros las gemas ocultas de la ciudad."
+
+#: src/templates/guides.html:77
+msgid ""
+"Michael is an expert on Boston's history and enjoys sharing fascinating "
+"stories about the city's past."
+msgstr ""
+"Michael es un experto en la historia de Boston y disfruta compartiendo "
+"historias fascinantes sobre el pasado de la ciudad."
+
+#: src/templates/guides.html:96
+msgid ""
+"Emily has a deep love for San Francisco and enjoys showing visitors the "
+"city's unique neighborhoods and landmarks."
+msgstr ""
+"Emily tiene un profundo amor por San Francisco y disfruta mostrando a los"
+" visitantes los barrios y monumentos únicos de la ciudad."
+
+#: src/templates/guides.html:115
+msgid ""
+"Anna has been guiding tours in Chicago for over a decade, offering "
+"insights into the city's architecture and history."
+msgstr ""
+"Anna ha estado guiando tours en Chicago por más de una década, ofreciendo"
+" conocimientos sobre la arquitectura y la historia de la ciudad."
+
+#: src/templates/header.html:4
+msgid "Toggle navigation"
+msgstr "Alternar navegación"
+
+#: src/templates/components/carousel.html:3
+msgid "Meet our best guide."
+msgstr "Conoce a nuestro mejor guía."
+
+#: src/templates/components/carousel.html:3
+msgid "This is Korina"
+msgstr "Esta es Korina"
+
+#: src/templates/components/carousel.html:4
+msgid "We strive to provide the best experiences on earth."
+msgstr "Nos esforzamos por proporcionar las mejores experiencias en la tierra."
+
+#: src/templates/components/carousel.html:6
+msgid "Type your contact info"
+msgstr "Escribe tu información de contacto"
+
+#: src/templates/components/carousel.html:7
+msgid "Contact Me"
+msgstr "Contáctame"
+
+#: src/templates/components/carousel.html:9
+msgid "Your data will not be shared with 3rd parties."
+msgstr "Tus datos no serán compartidos con terceros."
+
+#: src/templates/components/marquee.html:2
+msgid ""
+"Travel is the only thing you buy that makes you richer - Explore the "
+"world and discover yourself - Adventure awaits, go find it - Life is "
+"short, make every trip count - The world is a book, and those who do not "
+"travel read only one page - Travel far, travel wide, travel deep - Live "
+"with no excuses, travel with no regrets - Wander often, wonder always - "
+"Life is an adventure, make the most of it - Discover new places, meet new"
+" faces - Embrace the journey, every step is a story - Travel brings power"
+" and love back to your life - Leave the road, take the trails - Collect "
+"moments, not things - Travel more, worry less - Take only memories, leave"
+" only footprints - The journey, not the arrival, matters - Seek "
+"adventures that open your mind - To travel is to live - Experience the "
+"world in a new way"
+msgstr ""
+"Viajar es lo único que compras que te hace más rico - Explora el mundo y "
+"descúbrete a ti mismo - La aventura te espera, ve a encontrarla - La vida"
+" es corta, haz que cada viaje cuente - El mundo es un libro, y los que no"
+" viajan solo leen una página - Viaja lejos, viaja amplio, viaja profundo "
+"- Vive sin excusas, viaja sin remordimientos - Deambula a menudo, "
+"maravíllate siempre - La vida es una aventura, aprovéchala al máximo - "
+"Descubre nuevos lugares, conoce nuevas caras - Abrazar el viaje, cada "
+"paso es una historia - Viajar trae poder y amor de vuelta a tu vida - "
+"Deja el camino, toma los senderos - Colecciona momentos, no cosas - Viaja"
+" más, preocúpate menos - Toma solo recuerdos, deja solo huellas - El "
+"viaje, no la llegada, importa - Busca aventuras que abran tu mente - "
+"Viajar es vivir - Experimenta el mundo de una manera nueva"
+
+#: src/templates/components/upcoming.html:12
+msgid ""
+"Join us for an enchanting tour through Central Park. Discover hidden gems"
+" and iconic landmarks while enjoying the beauty of nature."
+msgstr ""
+"Únete a nosotros para un tour encantador por Central Park. Descubre gemas"
+" ocultas y monumentos icónicos mientras disfrutas de la belleza de la "
+"naturaleza."
+
+#: src/templates/components/upcoming.html:41
+msgid ""
+"Experience the rich history of Boston on this guided tour. Visit historic"
+" sites and learn fascinating stories about the city's past."
+msgstr ""
+"Experimenta la rica historia de Boston en este tour guiado. Visita sitios"
+" históricos y aprende historias fascinantes sobre el pasado de la ciudad."
+
+#: src/templates/components/upcoming.html:70
+msgid ""
+"Join us for an adventurous tour through the Rocky Mountains. Explore "
+"breathtaking trails and enjoy the stunning views."
+msgstr ""
+"Únete a nosotros para un tour aventurero por las Montañas Rocosas. "
+"Explora senderos impresionantes y disfruta de las vistas asombrosas."
 

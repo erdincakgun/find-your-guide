@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, redirect, g, url_for
 from os import getenv
 from dotenv import load_dotenv
 from flask_migrate import Migrate
@@ -22,12 +22,23 @@ migrate = Migrate(app, db)
 
 
 def get_locale():
+    try:
+        path_locale = request.path.split('/')[1]
+        if path_locale in app.config['BABEL_SUPPORTED_LOCALES']:
+            return path_locale
+    except IndexError:
+        pass
     return request.accept_languages.best_match(app.config['BABEL_SUPPORTED_LOCALES'])
 
 
 babel = Babel(app, locale_selector=get_locale)
 
 app.register_blueprint(router)
+
+
+@app.route('/')
+def redirect_to_default_language():
+    return redirect(url_for('router.index', lang=app.config['BABEL_DEFAULT_LOCALE']))
 
 
 @app.context_processor

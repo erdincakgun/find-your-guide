@@ -3,10 +3,10 @@
     <div class="col-12 col-md-4 mb-3 mb-md-0">
       <ul class="nav flex-column align-items-center">
         <li class="nav-item mb-2">
-          <a href="{{ url_for('router.index') }}" class="nav-link p-0 text-body-secondary">{{ _("Home") }}</a>
+          <a href="{{ url_for('router.index', lang=lang) }}" class="nav-link p-0 text-body-secondary">{{ _("Home") }}</a>
         </li>
         <li class="nav-item mb-2">
-          <a href="{{ url_for('router.about') }}" class="nav-link p-0 text-body-secondary">{{ _("About") }}</a>
+          <a href="{{ url_for('router.about', lang=lang) }}" class="nav-link p-0 text-body-secondary">{{ _("About") }}</a>
         </li>
         <li class="nav-item mb-2">
           <a href="#" class="nav-link p-0 text-body-secondary">{{ _("Contact") }}</a>

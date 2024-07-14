@@ -1,22 +1,22 @@
 <nav class="navbar navbar-expand-sm fixed-top bg-white">
   <div class="container">
-    <a class="navbar-brand" href="{{ url_for('router.index') }}">Find Your Guide</a>
+    <a class="navbar-brand" href="{{ url_for('router.index', lang=lang) }}">Find Your Guide</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="{{ _('Toggle navigation') }}">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.index') }}">{{ _("Home") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.index', lang=lang) }}">{{ _("Home") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.about') }}">{{ _("About") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.about', lang=lang) }}">{{ _("About") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.contact') }}">{{ _("Contact") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.contact', lang=lang) }}">{{ _("Contact") }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.guides') }}">{{ _("Guides") }}</a>
+          <a class="nav-link text-center" aria-current="page" href="{{ url_for('router.guides', lang=lang) }}">{{ _("Guides") }}</a>
         </li>
       </ul>
     </div>
