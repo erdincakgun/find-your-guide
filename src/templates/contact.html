@@ -11,14 +11,15 @@
       <div class="col-md-6 mb-5">
         <h2 class="h5 mb-4">{{ _('Our Location') }}</h2>
         <div class="ratio ratio-16x9">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.0914614620115!2d29.01297997666872!3d41.06699337134228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab65067842823%3A0x8d8c665ab915f7de!2sZorlu%20Center!5e0!3m2!1sen!2str!4v1720890111985!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.0914614620115!2d29.01297997666872!3d41.06699337134228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab65067842823%3A0x8d8c665ab915f7de!2sZorlu%20Center!5e0!3m2!1sen!2str!4v1720890111985!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
       <div class="col-md-6">
         <h2 class="h5 mb-4">{{ _('Send Us a Message') }}</h2>
-        <form>
+        <form id="contactForm">
           <div class="mb-3">
             <label for="name" class="form-label">{{ _('Name') }}</label>
-            <input type="text" class="form-control" id="name" placeholder="{{ _('Your Name') }}"  required/>
+            <input type="text" class="form-control" id="name" placeholder="{{ _('Your Name') }}" required />
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">{{ _('Email') }}</label>
@@ -32,6 +33,9 @@
             <button type="submit" class="btn btn-primary">{{ _('Send Message') }}</button>
           </div>
         </form>
+        <div class="mt-3" id="feedback" style="display: none;">
+          <div class="alert" id="feedbackMessage"></div>
+        </div>
       </div>
     </div>
 
@@ -42,4 +46,49 @@
       </p>
     </div>
   </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault()
+    
+      const name = document.getElementById('name').value
+      const email = document.getElementById('email').value
+      const message = document.getElementById('message').value
+      const feedback = document.getElementById('feedback')
+      const feedbackMessage = document.getElementById('feedbackMessage')
+    
+      if (!name || !email || !message) {
+        feedback.style.display = 'block'
+        feedbackMessage.className = 'alert alert-danger'
+        feedbackMessage.textContent = '{{ _("All fields are required") }}'
+        return
+      }
+    
+      fetch('/api/contact_form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name, email: email, message: message })
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          feedback.style.display = 'block'
+          if (data.success) {
+            feedbackMessage.className = 'alert alert-success'
+            feedbackMessage.textContent = data.message
+            document.getElementById('contactForm').reset()
+          } else {
+            feedbackMessage.className = 'alert alert-danger'
+            feedbackMessage.textContent = data.message
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+          feedback.style.display = 'block'
+          feedbackMessage.className = 'alert alert-danger'
+          feedbackMessage.textContent = '{{ _("There was an error sending your message.") }}'
+        })
+    })
+  </script>
 {% endblock %}

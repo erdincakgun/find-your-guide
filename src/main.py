@@ -1,9 +1,10 @@
 from flask import Flask, request, redirect, g, url_for
+from flask_mail import Mail
 from os import getenv
 from dotenv import load_dotenv
 from flask_migrate import Migrate
 from models import db
-from routes import router
+from routes import router, mail
 from flask_babel import Babel
 from datetime import datetime
 
@@ -16,10 +17,18 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["BABEL_DEFAULT_LOCALE"] = "en"
 app.config["BABEL_SUPPORTED_LOCALES"] = ["en", "tr", "es"]
 app.config["BABEL_TRANSLATION_DIRECTORIES"] = "../translations"
+app.config['MAIL_SERVER'] = getenv("SMTP_HOST")
+app.config['MAIL_PORT'] = getenv("SMTP_PORT")
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = getenv("SMTP_USER")
+app.config['MAIL_PASSWORD'] = getenv("SMTP_PASS")
+app.config['MAIL_DEFAULT_SENDER'] = getenv("SMTP_USER")
 
+mail.init_app(app)
 db.init_app(app)
-migrate = Migrate(app, db)
 
+migrate = Migrate(app, db)
 
 def get_locale():
     try:

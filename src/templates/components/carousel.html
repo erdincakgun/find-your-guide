@@ -2,13 +2,63 @@
   <div class="col-lg-7 d-flex flex-column justify-content-center align-items-center order-2 order-lg-1">
     <h2 class="fw-normal lh-1 pt-3 pt-lg-0">{{ _('Meet our best guide.') }} <span class="text-body-secondary">{{ _('This is Korina') }} &#128075;</span></h2>
     <p class="lead">{{ _('We strive to provide the best experiences on earth.') }}</p>
-    <div class="input-group fyg-carousel-form">
-      <input type="text" class="form-control" placeholder="{{ _('Type your contact info') }}" maxlength="50">
-      <button type="submit" class="btn btn-secondary">{{ _('Contact Me') }}</button>
+    <div class="input-group fyg-carousel-form" id="contactInfoForm">
+      <input type="text" id="contact-info" class="form-control" placeholder="{{ _('Type your contact info') }}" maxlength="50">
+      <button class="btn btn-secondary" id="contact-btn">{{ _('Contact Me') }}</button>
     </div>
+    <div class="d-none" id="contactInfoSuccess"></div>
     <small class="text-body-secondary py-3"><i class="fa-solid fa-shield-halved text-success"></i> {{ _("Your data will not be shared with 3rd parties.") }}</small>
   </div>
   <div class="col-lg-5 order-1 order-lg-2">
     <img src="{{ url_for('static', filename='jpg/our-best-guide.jpg') }}" alt="our best guide" class="img-fluid rounded" style="width: 100%;" />
   </div>
 </div>
+
+<script>
+  document.getElementById('contact-info').addEventListener('input', function () {
+    const contactBtn = document.getElementById('contact-btn');
+    const contactInfo = document.getElementById('contact-info').value;
+
+    if (contactInfo.trim() === '') {
+      contactBtn.disabled = true;
+    } else {
+      contactBtn.disabled = false;
+    }
+  });
+
+  document.getElementById('contact-btn').addEventListener('click', function () {
+    const contactInfo = document.getElementById('contact-info').value;
+
+    if (contactInfo.trim() === '') {
+      return;
+    }
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ contact: contactInfo }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        const contactInfoSuccessDiv = document.getElementById('contactInfoSuccess');
+        if (data.success) {
+          contactInfoSuccessDiv.classList.remove('d-none')
+          contactInfoSuccessDiv.innerText = '{{ _("Your contact info has been sent successfully.") }}';
+          document.getElementById("contactInfoForm").style.display = 'none';
+        } else {
+          contactInfoSuccessDiv.classList.remove('d-none')
+          contactInfoSuccessDiv.innerText = '{{ _("There was an error sending your contact info.") }}';
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        const contactInfoSuccessDiv = document.getElementById('contactInfoSuccess');
+        contactInfoSuccessDiv.classList.remove('d-none')
+        contactInfoSuccessDiv.innerText = '{{ _("There was an error sending your contact info.") }}';
+      });
+  });
+
+  document.getElementById('contact-info').dispatchEvent(new Event('input'));
+</script>
